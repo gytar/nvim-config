@@ -25,7 +25,7 @@ local on_attach = function(client, bufnr)
   keymap.set('n', 'gt', '<cmd>Telescope lsp_type_definitions<CR>', opts)
 
   opts.desc = "See available code actions"
-  keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, opts)
+  keymap.set({ 'n', 'v' }, '<leader>ga', vim.lsp.buf.code_action, opts)
 
   opts.desc = "Smart rename"
   keymap.set('n', "<leader>rn", vim.lsp.buf.rename, opts)
@@ -47,6 +47,7 @@ local on_attach = function(client, bufnr)
 
   opts.desc = "Restart LSP"
   keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+
 end
 
 -- Change the Diagnostic symbols in the sign column (gutter)
@@ -80,4 +81,21 @@ lspconfig["lua_ls"].setup({
 			},
 		},
 	},
+})
+lspconfig["bashls"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach,
+})
+lspconfig.gopls.setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+            gofumpt = true,
+        },
+    },
 })

@@ -17,7 +17,9 @@ mason_lspconfig.setup({
 	"tsserver",
 	"tailwindcss",
 	"lua_ls",
-	"pyright"
+	"pyright",
+    "gopls",
+    "bashls",
     },
     automatic_installation = true
 })
@@ -30,5 +32,6 @@ mason_tool_installer.setup({
 	"black",
 	"pylint",
 	"eslint_d",
+    "bashls",
     },
 })
