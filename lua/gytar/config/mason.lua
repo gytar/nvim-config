@@ -14,11 +14,8 @@ mason.setup({
 
 mason_lspconfig.setup({
     ensure_installed = {
-	"tsserver",
-	"tailwindcss",
 	"lua_ls",
 	"pyright",
-    "gopls",
     "bashls",
     },
     automatic_installation = true
